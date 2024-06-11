@@ -93,6 +93,13 @@ a {
     color: #db3f23
 }
 
+footer {
+    margin-top: 20px;
+    border-top: 3px dashed darkblue;
+    text-align: center;
+    font-weight: bold;
+}
+
 /* Smaller devices */
 @media screen and (max-width: 768px) {
     .interactive-container {
