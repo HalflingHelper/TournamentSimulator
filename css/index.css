@@ -1,3 +1,107 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.head {
+    border-bottom: 1px solid black;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+.g-container {
+    margin: 6rem;
+}
+
+.interactive-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+}
+
+#result {
+    position: sticky;
+    top: 0;
+}
+
+.caption {
+    color: grey;
+}
+
+#game-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-around;
+}
+
+th {
+    font-weight: normal;
+    text-align: left;
+    color: gray;
+}
+
+tbody td {
+    padding: 0.1rem 0.5rem;
+}
+
+tbody tr:nth-child(odd) {
+    /* background-color: #9bc0ff; */
+    color: #000;
+}
+
+table {
+    font-size: 0.9rem;
+    border-collapse: collapse;
+}
+
+tbody tr td {
+    border-top: 1px solid #BBB;
+    border-bottom: 1px solid #BBB;
+    margin: 0px;
+}
+
+
+table tr td {
+    border-right: 2px solid black;
+}
+
+table tr td:last-child {
+    border-right: 0;
+}
+
+#res-table {
+    width: 100%;
+}
+
+a {
+    color: rgb(0, 0, 44);
+}
+
+.info {
+    font-size: .9rem;
+    color: #444;
+}
+
+.pubdate {
+    font-weight: bold;
+}
+
+.updated-text {
+    font-weight: normal;
+    color: #db3f23
+}
+
+/* Smaller devices */
+@media screen and (max-width: 768px) {
+    .interactive-container {
+        display: block;
+    }
+
+    #result {
+        position: static;
+        width: 352px;
+        margin: auto;
+    }
+}

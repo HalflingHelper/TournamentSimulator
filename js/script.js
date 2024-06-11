@@ -1,4 +1,4 @@
-    // Default draw chance set from lichess masters database
+// Default draw chance set from lichess masters database
 const DEFAULT_DRAW_CHANCE = 0.43
 
 class Player {
@@ -18,8 +18,6 @@ class Player {
         let p1Win = 1 / (1 + 10 ^ (D / 400));
         let p2Win = 1 - p1Win;
         return [p1Win, p2Win].map(e => (1 - drawChance) * e)
-
-
     }
 }
 
@@ -167,5 +165,3 @@ class Tournament {
         return [totalRes, totalWins];
     }
 }
-
-

@@ -1,12 +1,20 @@
 .round-box {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: fit-content;
+    width: 300px;
+    font-size: 0.85rem;
+}
+
+.complete-game {
+    filter: opacity(.4);
+}
+
+.game-name {
+    padding: 0.2rem;
 }
 
 .game-box {
-    width: 22rem;
+    
     text-align: center;
     background-color: lightgray;
     padding: 0px;
