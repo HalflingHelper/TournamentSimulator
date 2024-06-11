@@ -42,7 +42,7 @@ const rounds = [
         new Game(players[7], players[5]).setResult(GameResults.DRAW),
     ]),
     new Round([
-        new Game(players[5], players[1]),
+        new Game(players[5], players[1]).setResult(GameResults.DRAW),
         new Game(players[2], players[7]).setResult(GameResults.WHITE),
         new Game(players[8], players[4]).setResult(GameResults.DRAW),
         new Game(players[0], players[6]).setResult(GameResults.WHITE),
