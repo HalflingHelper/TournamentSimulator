@@ -35,11 +35,11 @@ const rounds = [
         new Game(players[0], players[9]).setResult(GameResults.BLACK),
     ]),
     new Round([
-        new Game(players[1], players[9]),
-        new Game(players[3], players[0]),
-        new Game(players[6], players[8]),
-        new Game(players[4], players[2]),
-        new Game(players[7], players[5]),
+        new Game(players[1], players[9]).setResult(GameResults.DRAW),
+        new Game(players[3], players[0]).setResult(GameResults.WHITE),
+        new Game(players[6], players[8]).setResult(GameResults.DRAW),
+        new Game(players[4], players[2]).setResult(GameResults.BLACK),
+        new Game(players[7], players[5]).setResult(GameResults.DRAW),
     ]),
     new Round([
         new Game(players[5], players[1]),
@@ -120,7 +120,7 @@ res_array.forEach(e => {
     [w, s, p] = e;
     res_html += `<tr>
                     <td>${p}</td>
-                    <td>${Math.round(10000 * w / batchSize) / 100} %</td>
+                    <td>${Math.round(10000 * w / batchSize) / 100}%</td>
                     <td>${Math.round(100 * s) / 100}</td>
                 </tr>`
 });
@@ -129,5 +129,3 @@ res_html += `</tbody>`;
 
 
 res_table.innerHTML = res_html
-
-// TODO: Generate a form for a tournament and add event listeners
