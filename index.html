@@ -6,6 +6,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="manifest" href="images/site.webmanifest">
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/result.css">
+    <link rel="stylesheet" href="css/form.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Who Wins the Chess Tournament?</title>
@@ -14,15 +18,37 @@
 <body>
 
     <div>
+        <script>
+            function onlyOne(checkbox) {
+                console.log(checkbox)
+                var checkboxes = document.getElementsByName(checkbox.name)
+                checkboxes.forEach((item) => {
+                    if (item !== checkbox) item.checked = false
+                })
+            }
+        </script>
         <!-- Form to enter -->
+        <fieldset class="game-selector">
+            <input type="checkbox" id="white" name="game1" value="white" onclick="onlyOne(this)" />
+            <label for="white">White</label>
+
+            <input type="checkbox" id="draw" name="game1" value="draw" onclick="onlyOne(this)" />
+            <label for="draw">Draw</label>
+
+            <input type="checkbox" id="black" name="game1" value="black" onclick="onlyOne(this)" />
+            <label for="black">Black</label>
+
+        </fieldset>
     </div>
     <div id="result">
-        
+        <table id="res-table">
+            
+        </table>
     </div>
 </body>
 
 
 <script src="js/script.js"></script>
-<script src="js/test.js"></script>
+<script src="js/madrid.js"></script>
 
 </html>

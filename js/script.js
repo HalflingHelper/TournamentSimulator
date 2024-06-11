@@ -1,10 +1,13 @@
+    // Default draw chance set from lichess masters database
+const DEFAULT_DRAW_CHANCE = 0.43
+
 class Player {
     constructor(name, rating) {
         this.name = name;
         this.rating = rating;
     }
 
-    static getResultProbability(p1, p2, drawChance = 0.4) {
+    static getResultProbability(p1, p2, drawChance = DEFAULT_DRAW_CHANCE) {
         if (drawChance < 0 || drawChance > 1) { }
 
         if (p1.rating > p2.rating) {
@@ -50,7 +53,12 @@ class Game {
         }
     }
 
-    simRandom(drawChance = 0.4) {
+    setResult(r) {
+        this.result = r;
+        return this;
+    }
+
+    simRandom(drawChance = DEFAULT_DRAW_CHANCE) {
         let res = Player.getResultProbability(this.white, this.black, drawChance);
         let rand = Math.random();
         if (rand < res[0]) {
@@ -83,6 +91,21 @@ const TournamentFormats = Object.freeze({
     // SWISS?
     // CUSTOM?
 });
+
+// TODO: Handle ties
+function getWinner(res) {
+    let winning_score = 0;
+    let winner = "";
+
+    Object.keys(res).forEach(k => {
+        if (res[k] > winning_score) {
+            winning_score = res[k];
+            winner = k;
+        }
+    });
+
+    return winner
+}
 
 class Tournament {
     constructor(players = [], rounds = [], format = TournamentFormats.ROUND_ROBIN) {
@@ -127,16 +150,21 @@ class Tournament {
     }
 
     simulateBatch(batchSize = 1000) {
+        let totalWins = this.emptyPlayersDict;
         let totalRes = this.emptyPlayersDict;
 
         for (let i = 0; i < batchSize; ++i) {
             let res = this.simulate();
-            this.players.forEach(p => totalRes[p.name] += res[p.name]);
+            this.players.forEach(p => {
+                totalRes[p.name] += res[p.name]
+            });
+            totalWins[getWinner(res)] += 1
+
         }
 
         // Scale by size
         this.players.forEach(p => totalRes[p.name] /= batchSize);
-        return totalRes;
+        return [totalRes, totalWins];
     }
 }
 
