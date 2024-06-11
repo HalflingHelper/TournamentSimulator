@@ -2,6 +2,7 @@
     Information for the Madrid chess festival.
     Entered by hand, source: https://www.chess.com/events/2024-madrid-chess-festival-closed-a
 */
+// TODO: Hand entry is a pain, look for data sources
 const players = [
     //0
     new Player("GM Tomas Sosa", 2535),
@@ -93,7 +94,7 @@ const rounds = [
 
 const testTourney = new Tournament(players, rounds)
 
-
+// TODO: Move this data processing into somewhere else, so that each tournament can be its own js file.
 const batchSize = 10000;
 let [scores, wins] = testTourney.simulateBatch(batchSize);
 
@@ -128,3 +129,5 @@ res_html += `</tbody>`;
 
 
 res_table.innerHTML = res_html
+
+// TODO: Generate a form for a tournament and add event listeners

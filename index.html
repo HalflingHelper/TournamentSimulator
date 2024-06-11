@@ -17,7 +17,7 @@
 
 <body>
 
-    <div>
+    <div class="game-picker">
         <script>
             function onlyOne(checkbox) {
                 console.log(checkbox)
@@ -28,21 +28,115 @@
             }
         </script>
         <!-- Form to enter -->
-        <fieldset class="game-selector">
-            <input type="checkbox" id="white" name="game1" value="white" onclick="onlyOne(this)" />
-            <label for="white">White</label>
+        <div class="round-box">
+            <h2>Round 1</h2>
+            <div class="game-box">
+                <div>
+                    GM Adrian Suarez vs. GM Pepe Cuenca
+                </div>
+                <fieldset class="game-selector">
+                    <div class="white">
+                        <input type="checkbox" id="white" name="game0" value="white" onclick="onlyOne(this)" />
+                        <label for="white">White</label>
+                    </div>
+                    <div class="draw">
+                        <input type="checkbox" id="draw" name="game0" value="draw" onclick="onlyOne(this)" />
+                        <label for="draw">Draw</label>
+                    </div>
+                    <div class="black">
+                        <input type="checkbox" id="black" name="game0" value="black" onclick="onlyOne(this)" />
+                        <label for="black">Black</label>
+                    </div>
 
-            <input type="checkbox" id="draw" name="game1" value="draw" onclick="onlyOne(this)" />
-            <label for="draw">Draw</label>
+                </fieldset>
+            </div>
+            <div class="game-box">
+                <div>
+                    GM Adrian Suarez vs. GM Pepe Cuenca
+                </div>
+                <fieldset class="game-selector">
+                    <div class="white">
+                        <input type="checkbox" id="white" name="game1" value="white" onclick="onlyOne(this)" />
+                        <label for="white">White</label>
+                    </div>
+                    <div class="draw">
+                        <input type="checkbox" id="draw" name="game1" value="draw" onclick="onlyOne(this)" />
+                        <label for="draw">Draw</label>
+                    </div>
+                    <div class="black">
+                        <input type="checkbox" id="black" name="game1" value="black" onclick="onlyOne(this)" />
+                        <label for="black">Black</label>
+                    </div>
 
-            <input type="checkbox" id="black" name="game1" value="black" onclick="onlyOne(this)" />
-            <label for="black">Black</label>
+                </fieldset>
+            </div>
+            <div class="game-box">
+                <div>
+                    GM Adrian Suarez vs. GM Pepe Cuenca
+                </div>
+                <fieldset class="game-selector">
+                    <div class="white">
+                        <input type="checkbox" id="white" name="game2" value="white" onclick="onlyOne(this)" />
+                        <label for="white">White</label>
+                    </div>
+                    <div class="draw">
+                        <input type="checkbox" id="draw" name="game2" value="draw" onclick="onlyOne(this)" />
+                        <label for="draw">Draw</label>
+                    </div>
+                    <div class="black">
+                        <input type="checkbox" id="black" name="game2" value="black" onclick="onlyOne(this)" />
+                        <label for="black">Black</label>
+                    </div>
 
-        </fieldset>
+                </fieldset>
+            </div>
+            <div class="game-box">
+                <div>
+                    GM Adrian Suarez vs. GM Pepe Cuenca
+                </div>
+                <fieldset class="game-selector">
+                    <div class="white">
+                        <input type="checkbox" id="white" name="game3" value="white" onclick="onlyOne(this)" />
+                        <label for="white">White</label>
+                    </div>
+                    <div class="draw">
+                        <input type="checkbox" id="draw" name="game3" value="draw" onclick="onlyOne(this)" />
+                        <label for="draw">Draw</label>
+                    </div>
+                    <div class="black">
+                        <input type="checkbox" id="black" name="game3" value="black" onclick="onlyOne(this)" />
+                        <label for="black">Black</label>
+                    </div>
+
+                </fieldset>
+            </div>
+            <div class="game-box">
+                <div>
+                    GM Adrian Sosa vs. IM Levy Rozman
+                </div>
+                <fieldset class="game-selector">
+                    <div class="white">
+                        <input type="checkbox" id="white" name="game4" value="white" onclick="onlyOne(this)" />
+                        <label for="white">White</label>
+                    </div>
+                    <div class="draw">
+                        <input type="checkbox" id="draw" name="game4" value="draw" onclick="onlyOne(this)" />
+                        <label for="draw">Draw</label>
+                    </div>
+                    <div class="black">
+                        <input type="checkbox" id="black" name="game4" value="black" onclick="onlyOne(this)" />
+                        <label for="black">Black</label>
+                    </div>
+
+                </fieldset>
+            </div>
+        </div>
+
+
     </div>
     <div id="result">
         <table id="res-table">
-            
+
         </table>
     </div>
 </body>
