@@ -20,7 +20,7 @@ function gameSelect(checkbox) {
     if (checkbox.checked) {
         let res = checkbox.id === "white" ? GameResults.WHITE :
             checkbox.id === "black" ? GameResults.BLACK :
-                GameResults.DRAWx;
+                GameResults.DRAW;
 
         tournament.rounds[round].games[g].result = res;
     } else {
