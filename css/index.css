@@ -23,6 +23,11 @@ h2 {
 #result {
     position: sticky;
     top: 0;
+    background-color: #fff;
+}
+
+#result-wrap {
+    order: 2;
 }
 
 .caption {
@@ -104,11 +109,15 @@ footer {
 @media screen and (max-width: 768px) {
     .interactive-container {
         display: block;
+        position: relative;
     }
 
-    #result {
-        position: static;
-        width: 352px;
-        margin: auto;
+    .g-container {
+        margin: 1rem;
+    }
+
+    #result-wrap {
+        position: sticky;
+        top: 0;
     }
 }

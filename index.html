@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <!-- TODO: Navigation between tournaments -->
     <div class="g-container">
 
         <div class="head">
@@ -44,11 +45,7 @@
             </p>
         </div>
         <div class="interactive-container">
-            <div id="game-picker">
-                <p>There was a problem :(</p>
-            </div>
-            <div>
-
+            <div id="result-wrap">
                 <div id="result">
                     <table id="res-table">
 
@@ -56,6 +53,11 @@
                     <p class="caption">Based on 10,000 simulations</p>
                 </div>
             </div>
+            
+            <div id="game-picker">
+                <p>There was a problem :(</p>
+            </div>
+            
         </div>
 
         <footer>
@@ -71,7 +73,7 @@
 <!-- Data Structure Definitions -->
 <script src="js/script.js"></script>
 <!-- Just tournament data -->
-<script src="js/madrid.js"></script>
+<script src="js/tournaments/madrid.js"></script>
 <!-- Constants for the modules -->
 <script src="js/consts.js"></script>
 <!-- Helper functions -->
