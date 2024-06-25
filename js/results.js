@@ -1,7 +1,7 @@
 function getResArray(scores, wins) {
     return Object.keys(wins)
         .map(k => [wins[k], scores[k], k])
-        .sort((a, b) => a[0] === b[0] ? a[1] < b[1] : a[0] < b[0])
+        .sort((a, b) => a[0] === b[0] ? b[1] -  a[1] : b[0] - a[0] )
 }
 
 function buildTableHtml(res_array) {
