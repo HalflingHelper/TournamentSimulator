@@ -10,12 +10,8 @@ class Player {
     static getResultProbability(p1, p2, drawChance = DEFAULT_DRAW_CHANCE) {
         if (drawChance < 0 || drawChance > 1) { }
 
-        if (p1.rating > p2.rating) {
-            return this.getResultProbability(p2, p1).reverse();
-        }
-
-        let D = p2 - p1;
-        let p1Win = 1 / (1 + 10 ^ (D / 400));
+        let D = p2.rating - p1.rating;
+        let p1Win = 1 / (1 + 10 ** (D / 400));
         let p2Win = 1 - p1Win;
         return [p1Win, p2Win].map(e => (1 - drawChance) * e)
     }
@@ -62,7 +58,7 @@ class Game {
         if (rand < res[0]) {
             // White wins
             return [1, 0];
-        } else if (rand < res[1]) {
+        } else if (rand < res[1] + res[0]) {
             // Black wins
             return [0, 1]
         } else {
@@ -91,14 +87,18 @@ const TournamentFormats = Object.freeze({
 });
 
 // TODO: Handle ties
+// There are a number of possible tiebreak formats. (Most wins, opponent score, etc.)
+// This would require tournament results adding up a tiebreak score
 function getWinner(res) {
     let winning_score = 0;
-    let winner = "";
+    let winner = [];
 
     Object.keys(res).forEach(k => {
         if (res[k] > winning_score) {
             winning_score = res[k];
-            winner = k;
+            winner = [k];
+        } else if (res[k] == winning_score) {
+            winner.push(k)
         }
     });
 
@@ -150,18 +150,29 @@ class Tournament {
     simulateBatch(batchSize = 1000) {
         let totalWins = this.emptyPlayersDict;
         let totalRes = this.emptyPlayersDict;
+        let numTies = 0
 
         for (let i = 0; i < batchSize; ++i) {
             let res = this.simulate();
             this.players.forEach(p => {
                 totalRes[p.name] += res[p.name]
             });
-            totalWins[getWinner(res)] += 1
+            let winners = getWinner(res);
+            if (winners.length == 1) {
+                totalWins[winners[0]] += 1
+            } else {
+                winners.map(w => this.players.find(p => p.name == w));
+                winners.sort((a, b) => b.rating - a.rating)
+                totalWins[winners[0]] += 1
+                numTies += 1
+            }
+            
 
         }
 
         // Scale by size
         this.players.forEach(p => totalRes[p.name] /= batchSize);
+        console.log(`${numTies} ties`)
         return [totalRes, totalWins];
     }
 }
