@@ -1,5 +1,5 @@
 // Default draw chance set from lichess masters database
-const DEFAULT_DRAW_CHANCE = 0.43
+const DEFAULT_DRAW_CHANCE = 0.5
 
 class Player {
     constructor(name, rating) {
