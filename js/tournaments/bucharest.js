@@ -62,11 +62,11 @@ const rounds = [
         new Game(players[6], players[4]).setResult(GameResults.DRAW),
     ]),
     new Round([
-        new Game(players[0], players[4]),
-        new Game(players[2], players[6]),
-        new Game(players[1], players[8]),
-        new Game(players[3], players[9]),
-        new Game(players[5], players[7]),
+        new Game(players[0], players[4]).setResult(GameResults.DRAW),
+        new Game(players[2], players[6]).setResult(GameResults.DRAW),
+        new Game(players[1], players[8]).setResult(GameResults.WHITE),
+        new Game(players[3], players[9]).setResult(GameResults.DRAW),
+        new Game(players[5], players[7]).setResult(GameResults.DRAW),
     ]),
     new Round([
         new Game(players[7], players[0]),
